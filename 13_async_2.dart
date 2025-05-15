@@ -4,7 +4,7 @@ void main() {
   });
 }
 
-Stream emitNumbers() async* {
+Stream<int> emitNumbers() async* {
   // async*: significa que retorna un stream
 
   final List<int> valuesToEmit = [1, 2, 3, 4, 5];

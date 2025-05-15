@@ -1,17 +1,20 @@
-void main() {
+void main() async {
   print("inicio del programa");
-  httpGet("https://armando.com").then((value) {
+
+  try {
+    final value = await httpGet("https://armando.com");
     print(value);
-  }).catchError((err){
-    print('error: ${err}');
-  });
+  } catch (error) {
+    print('tenemos un error: $error');
+  }
+
   print("fin del programa");
 }
 
-Future<String> httpGet(String url) {
-  return Future.delayed(const Duration(seconds: 1), () {
-    throw 'Error en la petición http';
-    // return 'respuesta de la petición http';
-  });
+Future<String> httpGet(String url) async {
+  await Future.delayed(const Duration(seconds: 1));
+  // throw 'Error en la petición';
+  return 'tenemos un valor http';
 }
+
 // futures son promesas
